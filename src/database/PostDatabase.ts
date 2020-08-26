@@ -5,15 +5,14 @@ export class PostDatabase extends BaseDB {
   private static TABLE_NAME = "Posts"
 
   public async createPost(post: Post): Promise<Post> {
-    console.log(post)
-
     await this.getConnection()
       .insert({
         id: post.getId(),
         image: post.getImage(),
         description: post.getDescription(),
         created_at: post.getCreatedAt().toString(),
-        type: post.getType()
+        type: post.getType(),
+        user_id: post.getUserId()
       })
       .into(PostDatabase.TABLE_NAME);
 

@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken'
 
-interface AuthenticationData {
+export interface AuthenticationData {
   id: string
 }
 
@@ -14,7 +14,7 @@ export default abstract class Authenticator {
     )
   }
 
-  static getTokenData(token: string): any {
+  static getTokenData(token: string): AuthenticationData {
     const tokenData = jwt.verify(
       token,
       process.env.JWT_KEY as string

@@ -5,11 +5,10 @@ import BaseDB from "../database/BaseDatabase";
 
 export async function createPost(req: Request, res: Response) {
   try {
-
     const input: createPostInputDTO = {
+      token: req.headers.authorization,
       image: req.body.image,
       description: req.body.description,
-      createdAt: req.body.createdAt,
       type: req.body.type
     }
 

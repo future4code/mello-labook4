@@ -4,7 +4,8 @@ export class Post {
     private description: string,
     private type: POST_TYPE,
     private createdAt: Date,
-    private id: string
+    private id: string,
+    private userId: string
   ) { }
 
   getImage() {
@@ -27,6 +28,10 @@ export class Post {
     return this.id
   }
 
+  getUserId() {
+    return this.userId
+  }
+
   setImage(image: string) {
     this.image = image
   }
@@ -46,14 +51,17 @@ export class Post {
   setId(id: string) {
     this.id = id
   }
+
+  setUserId(userId: string) {
+    this.userId = userId
+  }
 }
 
 export interface createPostInputDTO {
+  token: string | undefined,
   image: string
   description: string
   type: POST_TYPE
-  createdAt?: Date
-  id?: string
 }
 
 export enum POST_TYPE {
