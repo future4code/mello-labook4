@@ -1,15 +1,16 @@
 import BaseDatabase from './BaseDatabase';
+import { User } from '../models/User';
 
 export default class UserDB extends BaseDatabase {
-    private static TABLE_NAME: string = 'User_Cookenu';
+    private static TABLE_NAME: string = 'user_labook';
 
-    public async createUser(id: string, name: string, email: string, password: string): Promise<void> {
+    public async createUser(user: User): Promise<void> {
         await this.getConnection()
             .insert({
-                id,
-                name,
-                email,
-                password
+                id: user.getId(),
+                name: user.getName(),
+                email: user.getEmail(),
+                password: user.getPassword()
             }).into(UserDB.TABLE_NAME)
     }
 

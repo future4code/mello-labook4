@@ -10,7 +10,7 @@ export default abstract class Authenticator {
     return jwt.sign(
       input,
       process.env.JWT_KEY as string,
-      { expiresIn: process.env.JWT_EXPIRES_IN }
+      {expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN}
     )
   }
 
