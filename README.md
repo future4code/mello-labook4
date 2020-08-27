@@ -1,24 +1,26 @@
-# Devs
-## Ronaldo Jonson
-## Thiago Stephen
-## Yuzo S. Okamoto
+# Projeto Semana 18 Labook
 
-# Endpoints
-### GET
-- /post = pegar todos os posts (em desenvolvimento)
-PATH: ` http://localhost:3003/post  `
+Ronaldo Jonson |
+Thiago Stephen |
+Yuzo Santana Okamoto
 
-### POST
-- /user/signup = registrar novo usuário
-`JSON BODY com name, email e password`
+## Open Endpoints
 
-- /friend = seguir/amizade com usuário
-` JSON BODY com userToFollowId e HEADERS com authorization = token`
+Open endpoints require no Authentication.
 
-- /post = criar novo post
-` JSON BODY com image, description e type, e HEADERS com authorization = token`
-` type = "NORMAL" ou "ADMIN" `
+* [Signup](doc/signup.md) : `POST /user/signup`
 
-### DELETE
-- /friend = remover seguir/amizade com usuário
-` JSON BODY com followedUserId e HEADERS com authorization = token`
+* [Get All Posts](doc/getAllPosts.md) : `GET /post`
+
+## Endpoints that require Authentication
+
+Closed endpoints require a valid JWT Token to be included in the header of the
+request. A Token can be acquired from the Signup view above.
+
+* [Add Friend](doc/addFriend.md) : `POST /friend`
+
+* [Remove Friend](doc/removeFriend.md) : `DELETE /friend`
+
+* [Create Post](doc/createPost.md) : `POST /post`
+
+* [Get Feed](doc/getFeed.md) : `GET /user/feed`
