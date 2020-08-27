@@ -43,4 +43,9 @@ export class PostBusiness {
     const postDatabase = new PostDatabase();
     return postDatabase.createPost(post);
   }
+
+  public static async getAllPosts(): Promise<Post[]> {
+    const postDatabase = new PostDatabase();
+    return postDatabase.getAllPosts();
+  }
 }

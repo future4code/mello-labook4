@@ -18,4 +18,11 @@ export class PostDatabase extends BaseDB {
 
     return post;
   }
+
+  public async getAllPosts(): Promise<Post[]> {
+    const posts: Post[] = await this.getConnection()
+      .from(PostDatabase.TABLE_NAME)
+
+    return posts;
+  }
 }
